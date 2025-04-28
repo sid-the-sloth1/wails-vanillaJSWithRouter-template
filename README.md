@@ -137,7 +137,7 @@ frontend/
 
 ## 🧪 Live Development
 
-To run in live development mode:
+To run in live development mode, while in your project directory:
 
 1. Start the Wails backend:
 
@@ -145,15 +145,10 @@ To run in live development mode:
    wails dev
    ```
 
-2. In another terminal, navigate to the `frontend/` folder and start the frontend dev server:
-
-   ```bash
-   npm run dev
-   ```
 
 The frontend will be available at [http://localhost:34115](http://localhost:34115).
 
-Open it in your browser to test your app with hot-reloading!
+Open it in your browser to test your app.
 
 ---
 
