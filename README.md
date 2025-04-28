@@ -1,29 +1,46 @@
 # README
 
-## About
+## 🚀 About
 
-This is a **Vanilla JS template** for a **Golang Wails (v2.10.1)** application that includes page navigation support.
+This is a **Vanilla JS template** for a **Golang Wails (v2.10.1)** application that includes simple page navigation support.
 
-This is less of a template and more of a demo app, showcasing how you can build a Wails app in Vanilla JS without using any frontend framework. It provides basic navigation between different parts of your app.
+Rather than a traditional template, this is a demo showcasing how to build a Wails app using only Vanilla JS — no frameworks required.  
+It provides a lightweight, easy-to-understand system for navigating between different parts of your app.
 
-Learn more about Wails: [https://wails.io/](https://wails.io/)
+Learn more about Wails here: [https://wails.io/](https://wails.io/)
 
-## How Navigation Works
+---
 
-Wails (v2.10.1) builds a Single Page Application (SPA), which means you cannot navigate between URLs like you would in a traditional web app. For example:
+## 📑 Table of Contents
+
+- [About](#-about)
+- [How Navigation Works](#-how-navigation-works)
+- [Notes](#-notes)
+- [File Structure](#-file-structure)
+- [How to Use This Template](#-how-to-use-this-template)
+- [Live Development](#-live-development)
+- [Building](#-building)
+
+---
+
+## 🔍 How Navigation Works
+
+Wails (v2.10.1) creates a Single Page Application (SPA).  
+This means you **cannot** directly navigate between URLs like in a traditional web app.
+
+For example:
 
 ```javascript
 window.location.href = "/IStoleTheMoon";
 ```
 
-This might initially load the page, but upon refreshing, Wails will not recognize the endpoint and will show an error screen.
+This will load initially, but refreshing will cause Wails to throw an error, because it won't recognize the custom endpoint.
 
-To work around this, we get a little creative:
-
-- When you create an `<a>` element as described [below](#notes) and configure the endpoint in **router.js**, clicking the link triggers an event listener that **prevents** navigation.
-- Instead, it stores the desired endpoint in `sessionStorage` and refreshes the page.
-- On reload, it checks `sessionStorage`:
-  - If an endpoint is found, it loads the corresponding HTML, CSS, and JS into:
+### Solution:
+- When a user clicks a custom `<a>` element (see [Notes](#-notes)), an event listener intercepts the click.
+- It stores the intended endpoint inside `sessionStorage`, then refreshes the page.
+- Upon reload:
+  - If an endpoint exists in storage, the associated HTML, CSS, and JS files are dynamically loaded into:
 
     ```html
     <main>
@@ -33,15 +50,17 @@ To work around this, we get a little creative:
     </main>
     ```
 
-  - If no endpoint is saved, it loads the homepage component.
-  - If no matching HTML file exists, it loads **404.html**.
+  - If no endpoint is stored, it loads the homepage by default.
+  - If the route doesn't exist, it loads **404.html**.
 
-You just need to create the `<a>` elements properly and configure routes in `router.js`. The rest is handled automatically!
+You only need to properly create your `<a>` elements and configure routes in `router.js`. The system handles the rest!
 
-## Notes
+---
+
+## 🛠️ Notes
 
 1. **Configuration**  
-   Edit `router.js` to map URLs to their corresponding HTML, JS, and CSS files. Once configured, you can navigate between pages like a traditional website.
+   Edit `router.js` to map endpoints to their corresponding HTML, JS, and CSS files.
 
 2. **Creating Links**  
    To enable navigation, use `<a>` elements with the `data-link` attribute:
@@ -51,7 +70,7 @@ You just need to create the `<a>` elements properly and configure routes in `rou
    ```
 
 3. **Programmatic Navigation**  
-   For navigation via JavaScript, set the desired path in `sessionStorage` and reload:
+   Navigate programmatically by setting `sessionStorage` and refreshing:
 
    ```javascript
    sessionStorage.setItem('lastPath', "/IStoleTheMoon");
@@ -59,53 +78,92 @@ You just need to create the `<a>` elements properly and configure routes in `rou
    ```
 
 4. **External Links**  
-   Wails (v2.10.1) does not directly support navigating to external URLs.  
-   However, you can open external links using:
+   Wails (v2.10.1) does **not** natively support external URLs.  
+   However, you can open links externally using:
 
    ```javascript
    window.runtime.BrowserOpenURL('https://github.com/tesseract-ocr/tessdoc/blob/main/Downloads.md');
    ```
 
-## File Structure
+---
+
+## 📂 File Structure
 
 ```
 frontend/
-├── index.html : Base HTML file. Components load inside the '<div id="content">' element.
+├── index.html : Base HTML file. Components load inside the <div id="content"> element.
 ├── css/
 │   ├── alertify.css : Styles for alertify.js notifications.
-│   ├── index.css : Base CSS for the entire app.
+│   ├── index.css : Base styling for the app.
 │   └── pages/
 │       ├── 404.css
 │       └── home.css
 ├── js/
-│   ├── alertify.js : Custom JS to show temporary bottom-right messages. Loaded on all pages.
-│   ├── index.js : Handles dark mode across the app.
-│   ├── lib.js : Helper functions. (Don't remove `waitForPageLoad()`, used by `router.js`.)
-│   ├── router.js : Core navigation logic. Configure endpoints here.
+│   ├── alertify.js : Custom notifications, loaded on all pages.
+│   ├── index.js : Dark mode handling.
+│   ├── lib.js : Utility functions (keep `waitForPageLoad()` for router.js).
+│   ├── router.js : Core SPA navigation logic (configure routes here).
 │   └── pages/
-│       └── home.js : JS for home.html. Shows how to connect to Wails backend.
+│       └── home.js : Logic for home.html, demonstrates Wails backend connection.
 └── pages/
     ├── 404.html
     └── home.html
 ```
 
-## Live Development
+---
+
+## 🧩 How to Use This Template
+
+1. Install [Wails](https://wails.io/)
+2. Open a terminal and navigate to the directory where you want to create the project.
+3. Run the following command (replace `your-app-name` as desired):
+
+   ```bash
+   wails init -n your-app-name -t https://github.com/sid-the-sloth1/wails-vanillaJSWithRouter-template
+   ```
+
+4. Navigate into your new project:
+
+   ```bash
+   cd your-app-name
+   ```
+
+5. Start development mode:
+
+   ```bash
+   wails dev
+   ```
+
+---
+
+## 🧪 Live Development
 
 To run in live development mode:
 
-1. Run `wails dev` in the project root.
-2. In another terminal, navigate to the `frontend/` directory and run:
+1. Start the Wails backend:
 
+   ```bash
+   wails dev
    ```
+
+2. In another terminal, navigate to the `frontend/` folder and start the frontend dev server:
+
+   ```bash
    npm run dev
    ```
 
-The frontend dev server will be available at [http://localhost:34115](http://localhost:34115). Open it in your browser to view the app during development.
+The frontend will be available at [http://localhost:34115](http://localhost:34115).
 
-## Building
+Open it in your browser to test your app with hot-reloading!
 
-To build a production-ready, redistributable package, simply run:
+---
 
-```
+## 📦 Building
+
+To create a production-ready build:
+
+```bash
 wails build
 ```
+
+This will bundle the backend and frontend into a distributable application.

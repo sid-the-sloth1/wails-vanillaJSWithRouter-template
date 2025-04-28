@@ -3,5 +3,5 @@
   "shortname": "wails-vanillaJSWithRouter-template",
   "author": "Hardy",
   "description": "A template for a wails application with a vanillaJS frontend which supports routing",
-  "helpurl": "URL for help with the template, eg homepage"
+  "helpurl": "https://github.com/sid-the-sloth1/wails-vanillaJSWithRouter-template"
 }
