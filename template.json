@@ -1,0 +1,7 @@
+{
+  "name": "wails-vanillaJSWithRouter-templat",
+  "shortname": "wails-vanillaJSWithRouter-template",
+  "author": "Hardy",
+  "description": "A template for a wails application with a vanillaJS frontend which supports routing",
+  "helpurl": "URL for help with the template, eg homepage"
+}

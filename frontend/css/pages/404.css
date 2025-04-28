@@ -1,0 +1,56 @@
+.error-section {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: var(--spacing-xlarge);
+    margin: var(--spacing-xlarge) auto;
+    max-width: 30rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--spacing-medium);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.error-section h3 {
+    font-size: 2rem;
+    color: var(--link-hover-color);
+    margin-bottom: var(--spacing-small);
+}
+
+.error-section span {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-large);
+    color: var(--text-color);
+}
+
+.error-section a {
+    display: inline-block;
+    margin-top: var(--spacing-medium);
+    padding: var(--spacing-small) var(--spacing-medium);
+    background-color: var(--link-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--spacing-small);
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.error-section a:hover {
+    background-color: var(--link-hover-color);
+}
+
+@media (max-width: 48em) {
+    .error-section {
+        padding: var(--spacing-large);
+        margin: var(--spacing-large) var(--spacing-medium);
+        max-width: 90%;
+    }
+
+    .error-section h3 {
+        font-size: 1.7rem;
+    }
+
+    .error-section span {
+        font-size: 1rem;
+    }
+}

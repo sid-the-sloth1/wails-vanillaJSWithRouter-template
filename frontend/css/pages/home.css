@@ -1,0 +1,49 @@
+section {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
+    border: 1px solid var(--border-color);
+    border-radius: var(--spacing-small);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+section p {
+    margin-bottom: var(--spacing-medium);
+    line-height: 1.8;
+}
+
+section #systemInfo,
+section #currentDateTime {
+    font-size: 0.9rem;
+    color: var(--link-color);
+    margin-top: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+    font-style: italic;
+}
+
+section p:last-child {
+    margin-bottom: 0;
+}
+
+section #currentDateTime:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 48em) {
+    section {
+        padding: var(--spacing-medium);
+    }
+
+    section p {
+        margin-bottom: var(--spacing-small);
+    }
+
+    section #systemInfo,
+    section #currentDateTime {
+        font-size: 0.8rem;
+        margin-top: var(--spacing-small);
+        margin-bottom: var(--spacing-small);
+    }
+}

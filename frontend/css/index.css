@@ -1,0 +1,189 @@
+:root {
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --header-background: #e9ecef;
+  --header-text-color: #212529;
+  --footer-background: #e9ecef;
+  --footer-text-color: #212529;
+  --link-color: #0d6efd;
+  --link-hover-color: #0b5ed7;
+  --active-link-color: #0b5ed7;
+  --border-color: #dee2e6;
+  --loader-background: rgba(248, 249, 250, 0.9);
+  --loader-color: #212529;
+
+  --spacing-unit: 1rem;
+  --spacing-small: calc(var(--spacing-unit) * 0.5);
+  --spacing-medium: var(--spacing-unit);
+  --spacing-large: calc(var(--spacing-unit) * 1.5);
+  --spacing-xlarge: calc(var(--spacing-unit) * 2);
+}
+
+[data-theme="dark"] {
+  --background-color: #212529;
+  --text-color: #f8f9fa;
+  --header-background: #343a40;
+  --header-text-color: #f8f9fa;
+  --footer-background: #343a40;
+  --footer-text-color: #f8f9fa;
+  --link-color: #339af0;
+  --link-hover-color: #74c0fc;
+  --active-link-color: #74c0fc;
+  --border-color: #495057;
+  --loader-background: rgba(33, 37, 41, 0.9);
+  --loader-color: #f8f9fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--header-background);
+  color: var(--header-text-color);
+  padding: var(--spacing-medium) var(--spacing-xlarge);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  color: var(--header-text-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-large);
+}
+
+nav a {
+  color: var(--header-text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--link-hover-color);
+}
+
+nav a.active {
+  color: var(--active-link-color);
+  border-bottom: 0.125rem solid var(--active-link-color);
+  padding-bottom: 0.125rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-small);
+  border-radius: 0.3125rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+.theme-toggle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.theme-toggle .hide {
+  display: none;
+}
+
+main {
+  flex-grow: 1;
+  padding: var(--spacing-medium) var(--spacing-xlarge);
+}
+
+footer {
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
+  text-align: center;
+  padding: var(--spacing-medium) var(--spacing-xlarge);
+  margin-top: auto;
+  box-shadow: 0 -0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--loader-background);
+  color: var(--loader-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.alertify-logs {
+  position: fixed;
+  bottom: 0.625rem;
+  right: 0.625rem;
+  z-index: 1002;
+}
+
+@media (max-width: 48em) {
+  header {
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    padding: var(--spacing-medium);
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  main {
+    padding: var(--spacing-medium);
+  }
+
+  footer {
+    padding: var(--spacing-medium);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "{{.ProjectName}}",
+  "version": "1.0.0",
+  "description": "Vanilla JS Wails App",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+,"author":"{{.AuthorName}}"}
