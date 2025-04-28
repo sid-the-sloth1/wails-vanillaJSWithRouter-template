@@ -4,8 +4,7 @@
 
 This is a **Vanilla JS template** for a **Golang Wails (v2.10.1)** application that includes simple page navigation support.
 
-Rather than a traditional template, this is a demo showcasing how to build a Wails app using only Vanilla JS — no frameworks required.  
-It provides a lightweight, easy-to-understand system for navigating between different parts of your app.
+Rather than a traditional template, this is a demo showcasing how to build a Wails app using only Vanilla JS which supports navigation between different pages of your app.
 
 Learn more about Wails here: [https://wails.io/](https://wails.io/)
 
@@ -15,7 +14,7 @@ Learn more about Wails here: [https://wails.io/](https://wails.io/)
 
 - [About](#-about)
 - [How Navigation Works](#-how-navigation-works)
-- [Notes](#-notes)
+- [Notes](#notes)
 - [File Structure](#-file-structure)
 - [How to Use This Template](#-how-to-use-this-template)
 - [Live Development](#-live-development)
@@ -25,7 +24,7 @@ Learn more about Wails here: [https://wails.io/](https://wails.io/)
 
 ## 🔍 How Navigation Works
 
-Wails (v2.10.1) creates a Single Page Application (SPA).  
+**Wails (v2.10.1)** creates a Single Page Application (SPA).  
 This means you **cannot** directly navigate between URLs like in a traditional web app.
 
 For example:
@@ -37,7 +36,7 @@ window.location.href = "/IStoleTheMoon";
 This will load initially, but refreshing will cause Wails to throw an error, because it won't recognize the custom endpoint.
 
 ### Solution:
-- When a user clicks a custom `<a>` element (see [Notes](#-notes)), an event listener intercepts the click.
+- When a user clicks a custom `<a>` element (see [Notes](#notes)), an event listener intercepts the click.
 - It stores the intended endpoint inside `sessionStorage`, then refreshes the page.
 - Upon reload:
   - If an endpoint exists in storage, the associated HTML, CSS, and JS files are dynamically loaded into:
@@ -49,7 +48,7 @@ This will load initially, but refreshing will cause Wails to throw an error, bec
       </div>
     </main>
     ```
-
+    of the index.html file.
   - If no endpoint is stored, it loads the homepage by default.
   - If the route doesn't exist, it loads **404.html**.
 
@@ -57,7 +56,7 @@ You only need to properly create your `<a>` elements and configure routes in `ro
 
 ---
 
-## 🛠️ Notes
+## Notes
 
 1. **Configuration**  
    Edit `router.js` to map endpoints to their corresponding HTML, JS, and CSS files.
@@ -78,7 +77,7 @@ You only need to properly create your `<a>` elements and configure routes in `ro
    ```
 
 4. **External Links**  
-   Wails (v2.10.1) does **not** natively support external URLs.  
+   Wails (v2.10.1) does **not** support opening external URLs inside the app.  
    However, you can open links externally using:
 
    ```javascript
@@ -167,3 +166,7 @@ wails build
 ```
 
 This will bundle the backend and frontend into a distributable application.
+
+## Special Thanks
+- [https://iconify.design/](https://iconify.design/): The best open source collection of svg icons.
+- [https://github.com/KiddoV/wails-pure-js-template/tree/main](https://github.com/KiddoV/wails-pure-js-template/tree/main): My starting point for building my first ever Vanilla JS Wails App.
