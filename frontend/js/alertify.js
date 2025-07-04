@@ -1,4 +1,5 @@
 const mainMsgDiv = document.getElementById('messageMainDiv');
+
 function alertify(message, type, duration = 6000) {
     let color;
     switch (type) {
@@ -22,5 +23,4 @@ function alertify(message, type, duration = 6000) {
         clearTimeout(timeOut);
     });
     mainMsgDiv.appendChild(msgNode);
-
 }

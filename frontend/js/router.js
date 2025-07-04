@@ -1,4 +1,4 @@
-// This file is responsible for routing and loading htm, js and css files
+// This file is responsible for routing and loading html, js and css files
 
 const mainContentElement = document.getElementById('content');
 const loader = document.getElementById('loader');
@@ -32,7 +32,7 @@ DO NOT MESS WITH CODE BELOW THIS LINE UNLESS YOU KNOW WHAT YOU ARE DOING
 
 
 
-//to allow routing to urls, when ypou create <a> elements, add a data-link attribute in it.
+// to allow routing to urls, when you create <a> elements, add a data-link attribute in it.
 // <a data-link href="/IStoleTheMoon" >Home Page</a>
 // when clicked, it prevents navigation. Saves the url in session storage and reloads the page.
 // Every time page loads, it checks the url in session storage and loads the corresponding html file.
@@ -47,7 +47,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-//
+
 waitForPageLoad().then(async () => {
   const storedPath = sessionStorage.getItem('lastPath') || '/';
   setActiveNavLink(storedPath);
@@ -82,7 +82,7 @@ waitForPageLoad().then(async () => {
         document.body.appendChild(s);
       }
     }
-    //needed for waitForComponent() function to work
+    // needed for waitForComponent() function to work
     window.loadedPage = true;
   } catch (err) {
     console.error(err);
@@ -90,5 +90,4 @@ waitForPageLoad().then(async () => {
   } finally {
     loader.classList.add('hide');
   }
-
 });

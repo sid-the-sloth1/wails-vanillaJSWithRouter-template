@@ -1,5 +1,5 @@
 async function waitForPageLoad() {
-    //https://sid-the-sloth1.github.io/docs/waitForElements.html
+    // https://sid-the-sloth1.github.io/docs/waitForElements.html
     return new Promise((resolve) => {
         if (document.readyState === "complete" || document.readyState === "interactive") {
             resolve();
@@ -9,8 +9,9 @@ async function waitForPageLoad() {
     });
 }
 
+
 async function waitForComponent() {
-    //waits for router.js to load the component
+    // waits for router.js to load the component
     return new Promise((resolve) => {
         if (window.loadedPage) {
             resolve();
@@ -30,6 +31,7 @@ async function waitForComponent() {
         }
     });
 }
+
 
 function createElement(tag, attrs ={}) {
     const element = document.createElement(tag);

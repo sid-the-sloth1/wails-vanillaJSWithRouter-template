@@ -11,5 +11,4 @@ waitForComponent().then(() => {
         document.getElementById('currentDateTime').textContent = currentDateTime;
     }
     fetchData();
-
 });
